@@ -47,8 +47,7 @@
                 <img src="" alt="..." class="fa fa-smile-o">
               </div> -->
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>A D M I N</h2>
+                <span>Welcome, <strong>{{Auth::user()->role}}</strong></span>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -69,7 +68,14 @@
                   </li>
                   <li><a><i class="fa fa-money"></i> Treasury <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Balance Info <span class="label label-danger pull-right">ADMIN ONLY</span></a></li></a></li>
+                      <?php
+                      $role = Auth::user()->role;
+                      if($role=="ADMIN")
+                      {
+                          echo '<li><a href="#">Balance Info <span class="label label-danger pull-right">ADMIN ONLY</span></a></li></a></li>';
+                      }
+                    ?>
+                      
                       <li><a href="#">Payment</a></li>
                       <li><a href="#">Expense</a></li>
                     </ul>
@@ -111,18 +117,19 @@
 
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Ashek Hossain
+                    <img src="images/img.jpg" alt="">{{Auth::user()->name}}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
+
+                    
+                    <?php
+                      $role = Auth::user()->role;
+                      if($role=="ADMIN")
+                      {
+                          echo '<li><a href="/register"><span class="badge bg-green pull-right">STAFF A/C ONLY</span>Register</a></li>';
+                      }
+                    ?>
                     <li><a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
