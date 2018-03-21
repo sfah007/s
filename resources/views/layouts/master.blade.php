@@ -60,9 +60,17 @@
                 <ul class="nav side-menu">
                   <li><a href="#"><i class="fa fa-graduation-cap"></i> Student <span class="fa fa-chevron"></span></a>
                   </li>
-                  <li><a href="#"><i class="fa fa-book"></i> Course <span class="fa fa-chevron"></span></a>
+                  <li><a href="#"><i class="fa fa-book"></i> Course <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href={{ route('create_course') }}>Create Course</a></li>
+                      <li><a href={{ route('view_courses') }}>View Courses</a></li>
+                    </ul>
                   </li>
-                  <li><a href="#"><i class="fa fa-group"></i> Batch <span class="fa fa-chevron"></span></a>
+                  <li><a href="#"><i class="fa fa-group"></i> Batch <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href={{ route('add_batch') }}>Add Batch</a></li>
+                      <li><a href={{ route('batch_list') }}>Batch List</a></li>
+                    </ul>
                   </li>
                   <li><a href="#"><i class="fa fa-edit"></i> Exam <span class="fa fa-chevron"></span></a>
                   </li>
@@ -228,9 +236,26 @@
     <!-- bootstrap-daterangepicker -->
     <script src="../vendors/moment/min/moment.min.js"></script>
     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- Data Tables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+
 	
   </body>
 </html>
