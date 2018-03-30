@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Science HUB'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://sciencehub.xyz'),
 
     /*
     |--------------------------------------------------------------------------
@@ -146,6 +146,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        Hizbul\OnnorokomSms\OnnorokomSmsServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -208,6 +212,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'SMS' => Hizbul\OnnorokomSms\Facades\OnnoRokomSMS::class,
+        'Flash' =>Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 

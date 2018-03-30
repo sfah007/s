@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Task extends Model
 {
     protected $fillable = [
-        'name', 'id', 'description', 'fee', 'duration', 'status',
+        'name', 'course_name', 'batch_name', 'topics','status',
     ];
 }

@@ -134,11 +134,12 @@ if($random_quote==7)
             @endif
 
             <div class="content">
+                <img src={{ asset('images/logo.png') }} height="15%" width="20%">
                 <div class="title m-b-md">
-                    Science HUB
+                    
                 </div>
                 <div>
-                    <span><font size="4.8"><?php echo $quote; ?></span>
+                    <span><strong><font size="4.8"><?php echo $quote; ?></font></strong></span>
                 </div>
                 
             </div>

@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+	<link rel="icon" href="images/logo.png" type="image/ico" />
 
     <title>Science HUB</title>
 
     <!-- Bootstrap -->
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -31,6 +32,7 @@
   </head>
 
   <body class="nav-md">
+    <!-- @include('flash::message') -->
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -58,7 +60,11 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="#"><i class="fa fa-graduation-cap"></i> Student <span class="fa fa-chevron"></span></a>
+                  <li><a href="#"><i class="fa fa-graduation-cap"></i> Student <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href={{ route('admit_student') }}>Admit Student</a></li>
+                      <li><a href={{ route('student_list') }}>Students' List</a></li>
+                    </ul>
                   </li>
                   <li><a href="#"><i class="fa fa-book"></i> Course <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -72,7 +78,17 @@
                       <li><a href={{ route('batch_list') }}>Batch List</a></li>
                     </ul>
                   </li>
-                  <li><a href="#"><i class="fa fa-edit"></i> Exam <span class="fa fa-chevron"></span></a>
+                  <!-- <li><a href="#"><i class="fa fa-edit"></i> Exam <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href={{ route('add_exam') }}>Add Exam</a></li>
+                      <li><a href={{ route('exam_list') }}>Exam List</a></li>
+                    </ul>
+                  </li> -->
+                  <li><a href="#"><i class="fa fa-list"></i> Tasks <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href={{ route('add_lecture') }}>Add Lecture</a></li>
+                      <li><a href={{ route('task_list_all') }}>Task List</a></li>
+                    </ul>
                   </li>
                   <li><a><i class="fa fa-money"></i> Treasury <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -80,12 +96,12 @@
                       $role = Auth::user()->role;
                       if($role=="ADMIN")
                       {
-                          echo '<li><a href="#">Balance Info <span class="label label-danger pull-right">ADMIN ONLY</span></a></li></a></li>';
+                          echo '<li><a href="/details">Balance Info <span class="label label-danger pull-right">ADMIN ONLY</span></a></li></a></li>';
                       }
                     ?>
                       
-                      <li><a href="#">Payment</a></li>
-                      <li><a href="#">Expense</a></li>
+                      <li><a href={{ route('payment') }}>Payment</a></li>
+                      <li><a href={{ route('expense') }}>Expense</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -175,7 +191,24 @@
                     </li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-envelope-o"></i> SMS Count : 7000 <span class="fa fa-chevron"></span></a></li>
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">1</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a href={{ route('send_message') }}><span>Send</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href={{ route('message_list') }}><span>Sent Messages</span>
+                      </a>
+                    </li>
+                    
+                    
+                  </ul>
+                </li>
               </ul>
             </nav>
           </div>
@@ -255,6 +288,12 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <!-- <script src="//code.jquery.com/jquery.js"></script>
+    <script>
+    $('#flash-overlay-modal').modal();
+    </script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ -->
 
 	
   </body>

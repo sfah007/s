@@ -18,14 +18,14 @@
                     	{{ csrf_field() }}
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Course Name</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" name="name" class="form-control" placeholder="Enter Course Name">
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" name="name" class="form-control" placeholder="" required="required">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Session</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div class="col-md-4 col-sm-9 col-xs-12">
                           <select name="session" class="form-control">
                           	<?php
                       	$current_year = date("Y");
@@ -42,22 +42,22 @@
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Course Fee</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="number" name="fee" class="form-control" placeholder="Enter Course Fee" min="0">
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="number" name="fee" class="form-control" placeholder="" min="0" required="required">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Duration (weeks)</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="number" name="duration" class="form-control" placeholder="Enter Course Duration in weeks" min="0">
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="number" name="duration" class="form-control" placeholder="" min="0" required="required">
                         </div>
                       </div>
                       
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Description
                         </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div class="col-md-4 col-sm-9 col-xs-12">
                           <textarea class="form-control" rows="3" name="description" placeholder="Things to add about this Course"></textarea>
                         </div>
                       </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBatchesTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateBatchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('batches', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('course_name');
-            $table->string('batch_course')->unique();
-            $table->string('days');
+            $table->string('message_body');
+            $table->string('batch_course');
             $table->string('time');
-            $table->string('start_date');
-            $table->string('end_date');
-            $table->string('status');
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ class CreateBatchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('batches');
+        Schema::dropIfExists('messages');
     }
 }

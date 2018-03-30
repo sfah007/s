@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Batch;
+use App\Student;
+use App\Task;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -44,6 +47,7 @@ class CourseController extends Controller
     {
             $new_course = new Course;
             $name = $request->name;
+            $name = strtoupper($name);
             $session = $request->session;
             $new_course->name = $name.' - '.$session;
             $new_course->description = $request->description;
@@ -53,6 +57,21 @@ class CourseController extends Controller
             $new_course->save();
             $courses = Course::all();
             return view('course/view_courses')->with('courses',$courses);
+    }
+
+
+    public function delete($id)
+    {
+        $course  = Course::find($id);
+        $batch = Batch::where('course_name',$course->name);
+        $student = Student::where('course_name',$course->name);
+        $task=Task::where('course_name',$course->name);
+        $batch->delete();
+        $student->delete();
+        $course->delete();
+        $task->delete();
+        $courses = Course::all();
+        return view('course/view_courses')->with('courses',$courses);
     }
 
     /**
