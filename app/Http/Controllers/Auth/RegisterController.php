@@ -28,6 +28,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     protected $redirectTo = '/home';
 
     /**

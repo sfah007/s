@@ -56,6 +56,20 @@
                             <th>{{$student->guardian_contact}}</th>
                             <th>{{$student->waiver_reference}}</th>
                             <th>{{$student->waiver_amount}}</th>
+                            <?php
+                            $val = \App\Course::where('name',$student->course_name)->first();
+                            $pay = ($val->fee)-($student->waiver_amount);
+                            $paid = $pay - ($student->paid_amount);
+                            if($paid==0)
+                            {
+                                echo '<th><font style="color:green">'.$student->paid_amount.'</font></th>';
+                            }
+                            else
+                            {
+                              echo '<th><font style="color:red">'.$student->paid_amount.'</font></th>';
+                            }
+                            ?>
+
                             <th>{{$student->paid_amount}}</th>
                             <th>{{$student->school}}</th>
                             <th>{{$student->college}}</th>

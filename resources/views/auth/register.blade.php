@@ -45,7 +45,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="role" class="btn-group">
                             <label class="btn btn-default">
-                              <input type="radio" name="role" value="ADMIN"> &nbsp; ADMIN &nbsp;
+                              <input type="radio" name="role" value="ADMIN" disabled> &nbsp; ADMIN &nbsp;
                             </label>
                             <label class="btn btn-default">
                               <input type="radio" name="role" value="STAFF"> &nbsp; STAFF &nbsp;
